@@ -138,7 +138,7 @@ jobs:
               uses: actions/configure-pages@v3
               if: ${{ !cancelled() }}
             - name: Upload artifact
-              uses: actions/upload-pages-artifact@v2
+              uses: actions/upload-pages-artifact@main
               if: ${{ !cancelled() }}
               with:
                   path: "dist/"
