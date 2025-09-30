@@ -49,7 +49,11 @@ function App(): React.JSX.Element {
             </ul>
             <hr />
 
-            <Button onClick={() => console.log("Hello World!")}>
+            <Button
+                onClick={() => {
+                    console.log("Hello World!");
+                }}
+            >
                 Log Hello World
             </Button>
             <hr />
