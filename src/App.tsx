@@ -6,7 +6,10 @@ import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
-import { Button } from "react-bootstrap";
+import { DoubleHalf } from "./bad-components/DoubleHalf";
+import { ColoredBox } from "./bad-components/ColoredBox";
+import { ShoveBox } from "./bad-components/ShoveBox";
+import { ChooseTeam } from "./bad-components/ChooseTeam";
 
 function App(): React.JSX.Element {
     return (
@@ -16,21 +19,16 @@ function App(): React.JSX.Element {
                 Sam Mullaney UD CISC275 with React Hooks and TypeScript Hello
                 World!
             </header>
-            <hr />
-
-            <Counter />
-            <hr />
-
-            <RevealAnswer />
-            <hr />
-
-            <StartAttempt />
-            <hr />
-
-            <TwoDice />
-            <hr />
-
-            <ChangeType />
+            <hr></hr>
+            {/* <DoubleHalf></DoubleHalf> */}
+            <hr></hr>
+            <ChooseTeam></ChooseTeam>
+            <hr></hr>
+            <ColoredBox></ColoredBox>
+            <hr></hr>
+            <ShoveBox></ShoveBox>
+            <hr></hr>
+            <Counter></Counter>
             <hr />
 
             <CycleHoliday />
