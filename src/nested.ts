@@ -1,5 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion, duplicateQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -140,7 +141,7 @@ export function addNewQuestion(
     name: string,
     type: QuestionType,
 ): Question[] {
-    return [];
+    return [...questions, makeBlankQuestion(id, name, type)];
 }
 
 /***
@@ -153,7 +154,9 @@ export function renameQuestionById(
     targetId: number,
     newName: string,
 ): Question[] {
-    return [];
+    return questions.map((q) =>
+        q.id === targetId ? { ...q, name: newName } : q,
+    );
 }
 
 /***
@@ -168,7 +171,18 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType,
 ): Question[] {
-    return [];
+    return questions.map((q) =>
+        q.id === targetId ?
+            {
+                ...q,
+                type: newQuestionType,
+                options:
+                    newQuestionType === "multiple_choice_question" ?
+                        q.options
+                    :   [],
+            }
+        :   q,
+    );
 }
 
 /**
@@ -187,7 +201,20 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string,
 ): Question[] {
-    return [];
+    return questions.map((q) => {
+        if (q.id !== targetId) {
+            return q;
+        }
+
+        const newOptions =
+            targetOptionIndex === -1 ?
+                [...q.options, newOption]
+            :   q.options.map((opt, i) =>
+                    i === targetOptionIndex ? newOption : opt,
+                );
+
+        return { ...q, options: newOptions };
+    });
 }
 
 /***
@@ -201,5 +228,7 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number,
 ): Question[] {
-    return [];
+    return questions.flatMap((q) =>
+        q.id === targetId ? [q, duplicateQuestion(newId, q)] : [q],
+    );
 }
