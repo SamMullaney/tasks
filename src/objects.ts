@@ -50,14 +50,9 @@ export function isValid(question: Question, answer: string): boolean {
         return true;
     }
     if (question.type === "multiple_choice_question") {
-        if (question.options.includes(answer)) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
+        return question.options.includes(answer);
     }
+    return false;
 }
 
 /**
