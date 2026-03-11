@@ -25,6 +25,9 @@ function MoveableBox({
     return (
         <div
             data-testid="moveable-box"
+            onClick={() => {
+                setPosition(4 + position);
+            }}
             style={{
                 width: "50px",
                 height: "50px",
