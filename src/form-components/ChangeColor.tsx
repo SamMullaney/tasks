@@ -40,7 +40,9 @@ export function ChangeColor(): React.JSX.Element {
                         id={`color-${c}`}
                         value={c}
                         checked={selectedColor === c}
-                        onChange={() => setSelectedColor(c)}
+                        onChange={() => {
+                            setSelectedColor(c);
+                        }}
                         label={
                             <span
                                 style={{
