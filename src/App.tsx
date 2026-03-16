@@ -30,6 +30,7 @@ function App(): React.JSX.Element {
             <EditMode></EditMode>
             <hr></hr>
             <ChangeColor></ChangeColor>
+            {/*
             <hr></hr>
             <MultipleChoiceQuestion
                 options={["a", "b", "c"]}
@@ -67,7 +68,7 @@ function App(): React.JSX.Element {
             <hr />
             <ChangeType></ChangeType>
             <hr />
-            <CycleHoliday></CycleHoliday>
+    <CycleHoliday></CycleHoliday> */}
         </div>
     );
 }
